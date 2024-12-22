@@ -11,7 +11,6 @@ The goal of this project is to implement predictive inference through forward re
 - Programming Language: C#
 - Application Type: Windows Forms
 - Platform: .NET Framework
-- Repository: Public or accessible to the course instructor
 
 ## Features
 
@@ -39,7 +38,7 @@ The goal of this project is to implement predictive inference through forward re
 ## Authors
 
 - Gisca Valentin - 1405B ( valentin.gisca@student.tuiasi.ro )
-- Lupu Andreea-Sabina - 1405B (andreea-sabina.lupu@student.tuiasi.ro )
+- Lupu Andreea-Sabina - 1405B ( andreea-sabina.lupu@student.tuiasi.ro )
 
 ## License
 
