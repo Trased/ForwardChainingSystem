@@ -17,8 +17,8 @@ The goal of this project is to implement predictive inference through forward re
 1. Implementation of forward reasoning (forward chaining).
 2. Graphical interface for inputting premises and displaying conclusions.
 3. Two demonstration problems:
-   - Example 1: Pythagorean Theorem. - Implementation provided by Sabina
-   - Example 2: Inclusion-Exclusion Principle. - Implementation provided by Valentin
+   - Example 1: Pythagorean Theorem.
+   - Example 2: Inclusion-Exclusion Principle.
 4. Extendable for other sets of rules.
 
 ## Project Structure
