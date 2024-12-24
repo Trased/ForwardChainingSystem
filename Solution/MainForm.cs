@@ -45,6 +45,10 @@ namespace Solution
                 premisesListBox.Items.Add(premise);
                 premisesBox.Clear();
             }
+
+            // TO DO: Add extended support for numbers, to be able to demonstrate Pythagorean Theorem.
+            //      Need to ensure that this won't affect other implementations.
+            //      Or if it will, we need to add an extra button on the UI to be able to specify the theorem we want to prove.
         }
 
         private void ruleButton_Click(object sender, EventArgs e)
@@ -63,6 +67,10 @@ namespace Solution
                     rulesBox.Clear();
                 }
             }
+
+            // TO DO: Add extended support for numbers, to be able to demonstrate Pythagorean Theorem.
+            //      Need to ensure that this won't affect other implementations.
+            //      Or if it will, we need to add an extra button on the UI to be able to specify the theorem we want to prove.
         }
 
         private void inferButton_Click(object sender, EventArgs e)
@@ -74,6 +82,10 @@ namespace Solution
                 conclusionsList.Items.Add(fact);
                 MessageBox.Show(fact);
             }
+
+            // TO DO: Add extended support for numbers, to be able to demonstrate Pythagorean Theorem.
+            //      Need to ensure that this won't affect other implementations.
+            //      Or if it will, we need to add an extra button on the UI to be able to specify the theorem we want to prove.
         }
     }
 }
