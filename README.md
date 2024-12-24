@@ -10,7 +10,7 @@ The goal of this project is to implement predictive inference through forward re
 
 - Programming Language: C#
 - Application Type: Windows Forms
-- Platform: .NET Framework
+- Platform: .NET Framework 4.7.2
 
 ## Features
 
