@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,9 @@ namespace Solution
             MessageBox.Show("Feature to load predefined problem sets will be implemented here.", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // TO DO
+            // Switch to a predefined principle(e.g., Inclusion - Exclusion Principle)
+            mKnowledgeBase.setActivePrinciple(new InclusionExclusionPrinciple());
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,14 +45,17 @@ namespace Solution
             string premise = premisesBox.Text.Trim();
             if (!string.IsNullOrEmpty(premise))
             {
-                mKnowledgeBase.AddFact(premise);
-                premisesListBox.Items.Add(premise);
-                premisesBox.Clear();
+                try
+                {
+                    mKnowledgeBase.AddFact(premise);
+                    premisesListBox.Items.Add(premise);
+                    premisesBox.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error adding premise: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
-            // TO DO: Add extended support for numbers, to be able to demonstrate Pythagorean Theorem.
-            //      Need to ensure that this won't affect other implementations.
-            //      Or if it will, we need to add an extra button on the UI to be able to specify the theorem we want to prove.
         }
 
         private void ruleButton_Click(object sender, EventArgs e)
@@ -56,36 +63,39 @@ namespace Solution
             string ruleText = rulesBox.Text.Trim();
             if (!string.IsNullOrEmpty(ruleText))
             {
-                string[] parts = ruleText.Split(new[] { "THEN" }, StringSplitOptions.RemoveEmptyEntries);
-                if (parts.Length == 2)
+                try
                 {
-                    List<string> premises = new List<string>(parts[0].Split(new[] { "AND" }, StringSplitOptions.RemoveEmptyEntries));
-                    string conclusion = parts[1].Trim();
-                    Rule rule = new Rule(premises.ConvertAll(p => p.Trim()), conclusion);
-                    mKnowledgeBase.AddRule(rule);
+                    mKnowledgeBase.AddRule(ruleText);
                     rulesListBox.Items.Add(ruleText);
                     rulesBox.Clear();
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error adding rule: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
-            // TO DO: Add extended support for numbers, to be able to demonstrate Pythagorean Theorem.
-            //      Need to ensure that this won't affect other implementations.
-            //      Or if it will, we need to add an extra button on the UI to be able to specify the theorem we want to prove.
         }
 
         private void inferButton_Click(object sender, EventArgs e)
         {
-            List<string> newFacts = mKnowledgeBase.PerformInference();
-            conclusionsList.Items.Clear();
-            foreach (var fact in newFacts)
+            try
             {
-                conclusionsList.Items.Add(fact);
-                MessageBox.Show(fact);
-            }
+                List<string> newFacts = mKnowledgeBase.Infer();
+                conclusionsList.Items.Clear();
+                foreach (var fact in newFacts)
+                {
+                    conclusionsList.Items.Add(fact);
+                }
 
-            // TO DO: Add extended support for numbers, to be able to demonstrate Pythagorean Theorem.
-            //      Need to ensure that this won't affect other implementations.
-            //      Or if it will, we need to add an extra button on the UI to be able to specify the theorem we want to prove.
+                if (newFacts.Count == 0)
+                {
+                    MessageBox.Show("No new conclusions could be inferred.", "Inference Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during inference: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
