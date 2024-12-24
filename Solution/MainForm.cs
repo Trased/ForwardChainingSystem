@@ -12,39 +12,68 @@ namespace Solution
 {
     public partial class MainForm : Form
     {
+        private KnowledgeBase mKnowledgeBase;
         public MainForm()
         {
             InitializeComponent();
+            mKnowledgeBase = new KnowledgeBase();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TO DO
+            MessageBox.Show("Forward Chaining System\nDeveloped for Artificial Intelligence 2024-2025", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void loadProblemSetToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Feature to load predefined problem sets will be implemented here.", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             // TO DO
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TO DO
+            Application.Exit();
         }
 
         private void premisesButton_Click(object sender, EventArgs e)
         {
-            // TO DO
+            string premise = premisesBox.Text.Trim();
+            if (!string.IsNullOrEmpty(premise))
+            {
+                mKnowledgeBase.AddFact(premise);
+                premisesListBox.Items.Add(premise);
+                premisesBox.Clear();
+            }
         }
 
         private void ruleButton_Click(object sender, EventArgs e)
         {
-            // TO DO
+            string ruleText = rulesBox.Text.Trim();
+            if (!string.IsNullOrEmpty(ruleText))
+            {
+                string[] parts = ruleText.Split(new[] { "THEN" }, StringSplitOptions.RemoveEmptyEntries);
+                if (parts.Length == 2)
+                {
+                    List<string> premises = new List<string>(parts[0].Split(new[] { "AND" }, StringSplitOptions.RemoveEmptyEntries));
+                    string conclusion = parts[1].Trim();
+                    Rule rule = new Rule(premises.ConvertAll(p => p.Trim()), conclusion);
+                    mKnowledgeBase.AddRule(rule);
+                    rulesListBox.Items.Add(ruleText);
+                    rulesBox.Clear();
+                }
+            }
         }
 
         private void inferButton_Click(object sender, EventArgs e)
         {
-            // TO DO
+            List<string> newFacts = mKnowledgeBase.PerformInference();
+            conclusionsList.Items.Clear();
+            foreach (var fact in newFacts)
+            {
+                conclusionsList.Items.Add(fact);
+                MessageBox.Show(fact);
+            }
         }
     }
 }
