@@ -31,9 +31,10 @@ namespace Solution
         {
             MessageBox.Show("Pythagorean Theorem was set as the active principle!", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // TODO: Change to Pythagorean theorem!
-            //mKnowledgeBase.setActivePrinciple(new ());
-        }
+            // TO DO
+            // Switch to a predefined principle(e.g., Inclusion - Exclusion Principle)
+            //mKnowledgeBase.setActivePrinciple(new InclusionExclusionPrinciple());
+            mKnowledgeBase.setActivePrinciple(new PythagoreanPrinciple());
 
         private void inclusionExclusionPrincipleToolStripMenuItem_Click(object sender, EventArgs e)
         {
