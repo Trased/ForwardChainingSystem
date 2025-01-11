@@ -31,7 +31,8 @@ namespace Solution
 
             // TO DO
             // Switch to a predefined principle(e.g., Inclusion - Exclusion Principle)
-            mKnowledgeBase.setActivePrinciple(new InclusionExclusionPrinciple());
+            //mKnowledgeBase.setActivePrinciple(new InclusionExclusionPrinciple());
+            mKnowledgeBase.setActivePrinciple(new PythagoreanPrinciple());
 
         }
 
