@@ -24,7 +24,7 @@ The goal of this project is to implement predictive inference through forward re
 ## Project Structure
 
 - **Solution/**: Application source code.
-- **Documents/**: Project documentation.
+- **Documentation/**: Project documentation.
 - **Screenshots/**: Application usage screenshots.
 
 ## Authors
