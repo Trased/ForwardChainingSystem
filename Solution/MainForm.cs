@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Solution.Principles.Implementation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,7 @@ namespace Solution
         {
             InitializeComponent();
             mKnowledgeBase = new KnowledgeBase();
+            mKnowledgeBase.setActivePrinciple(new GenericPrinciple());
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -25,14 +27,19 @@ namespace Solution
             MessageBox.Show("Forward Chaining System\nDeveloped for Artificial Intelligence 2024-2025", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void loadProblemSetToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pythagoreanTheoremToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature to load predefined problem sets will be implemented here.", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Pythagorean Theorem was set as the active principle!", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // TO DO
-            // Switch to a predefined principle(e.g., Inclusion - Exclusion Principle)
+            // TODO: Change to Pythagorean theorem!
+            //mKnowledgeBase.setActivePrinciple(new ());
+        }
+
+        private void inclusionExclusionPrincipleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Inclusion-Exclusion Principle was set as the active principle!", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             mKnowledgeBase.setActivePrinciple(new InclusionExclusionPrinciple());
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
