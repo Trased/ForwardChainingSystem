@@ -42,6 +42,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadProblemSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pythagoreanTheoremToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inclusionExclusionPrincipleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,10 +160,26 @@
             // 
             // loadProblemSetToolStripMenuItem
             // 
+            this.loadProblemSetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pythagoreanTheoremToolStripMenuItem,
+            this.inclusionExclusionPrincipleToolStripMenuItem});
             this.loadProblemSetToolStripMenuItem.Name = "loadProblemSetToolStripMenuItem";
             this.loadProblemSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadProblemSetToolStripMenuItem.Text = "Load problem set";
-            this.loadProblemSetToolStripMenuItem.Click += new System.EventHandler(this.loadProblemSetToolStripMenuItem_Click);
+            // 
+            // pythagoreanTheoremToolStripMenuItem
+            // 
+            this.pythagoreanTheoremToolStripMenuItem.Name = "pythagoreanTheoremToolStripMenuItem";
+            this.pythagoreanTheoremToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.pythagoreanTheoremToolStripMenuItem.Text = "Pythagorean Theorem";
+            this.pythagoreanTheoremToolStripMenuItem.Click += new System.EventHandler(this.pythagoreanTheoremToolStripMenuItem_Click);
+            // 
+            // inclusionExclusionPrincipleToolStripMenuItem
+            // 
+            this.inclusionExclusionPrincipleToolStripMenuItem.Name = "inclusionExclusionPrincipleToolStripMenuItem";
+            this.inclusionExclusionPrincipleToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.inclusionExclusionPrincipleToolStripMenuItem.Text = "Inclusion-Exclusion Principle";
+            this.inclusionExclusionPrincipleToolStripMenuItem.Click += new System.EventHandler(this.inclusionExclusionPrincipleToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -181,7 +199,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -228,6 +246,8 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pythagoreanTheoremToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inclusionExclusionPrincipleToolStripMenuItem;
     }
 }
 

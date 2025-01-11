@@ -54,6 +54,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Generic\KnowledgeBase.cs" />
+    <Compile Include="Principles\Implementation\GenericPrinciple.cs" />
     <Compile Include="Principles\Implementation\InclusionExclusionPrinciple.cs" />
     <Compile Include="Principles\Implementation\PythagorianPrinciple.cs" />
     <Compile Include="Program.cs" />
