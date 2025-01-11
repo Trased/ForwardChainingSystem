@@ -24,16 +24,8 @@ The goal of this project is to implement predictive inference through forward re
 ## Project Structure
 
 - **Solution/**: Application source code.
-- **docs/**: Project documentation.
-- **tests/**: Tests for validating implemented functionalities.
-
-## Next Steps
-
-1. Implementing the class for logical rules.
-2. Developing logic for forward reasoning.
-3. Designing the user interface.
-4. Testing the application on relevant cases.
-5. Documenting the project and updating the README with additional details.
+- **Documents/**: Project documentation.
+- **Screenshots/**: Application usage screenshots.
 
 ## Authors
 

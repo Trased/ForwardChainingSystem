@@ -35,6 +35,7 @@ namespace Solution
             rulesListBox.Items.Clear();
             premisesBox.Clear();
             premisesListBox.Items.Clear();
+            conclusionsList.Items.Clear();
             ruleButton.Enabled = true;
 
             mKnowledgeBase.SetActivePrinciple(new GenericPrinciple());
@@ -47,17 +48,18 @@ namespace Solution
             rulesListBox.Items.Clear();
             premisesBox.Clear();
             premisesListBox.Items.Clear();
+            conclusionsList.Items.Clear();
             ruleButton.Enabled = false;
 
             mKnowledgeBase.SetActivePrinciple(new PythagoreanPrinciple());
 
-            mKnowledgeBase.AddRule("A AND B THEN R * R = A * A + B * B");
-            mKnowledgeBase.AddRule("A AND C THEN R * R = C * C - A * A");
-            mKnowledgeBase.AddRule("B AND C THEN R * R = C * C - B * B");
+            mKnowledgeBase.AddRule("A AND B THEN H * H = A * A + B * B");
+            mKnowledgeBase.AddRule("A AND C THEN L * L = C * C - A * A");
+            mKnowledgeBase.AddRule("B AND C THEN L * L = C * C - B * B");
 
-            rulesListBox.Items.Add("A AND B THEN R * R = A * A + B * B");
-            rulesListBox.Items.Add("A AND C THEN R * R = C * C - A * A");
-            rulesListBox.Items.Add("B AND C THEN R * R = C * C - B * B");
+            rulesListBox.Items.Add("A AND B THEN H * H = A * A + B * B");
+            rulesListBox.Items.Add("A AND C THEN L * L = C * C - A * A");
+            rulesListBox.Items.Add("B AND C THEN L * L = C * C - B * B");
             
         }
 
@@ -69,6 +71,7 @@ namespace Solution
             rulesListBox.Items.Clear();
             premisesBox.Clear();
             premisesListBox.Items.Clear();
+            conclusionsList.Items.Clear();
             ruleButton.Enabled = false;
 
             mKnowledgeBase.SetActivePrinciple(new InclusionExclusionPrinciple());
