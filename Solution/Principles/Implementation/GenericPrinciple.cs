@@ -9,15 +9,15 @@ namespace Solution.Principles.Implementation
     public class GenericPrinciple : IPrinciple
     {
         private HashSet<string> logicalFacts;
-        private Dictionary<string, int> numericalFacts;
+        private Dictionary<string, double> numericalFacts;
         private List<Rule> rules;
 
-        public string Name => "Generic Principle";
+        public string Name => "Generic";
 
         public GenericPrinciple()
         {
             logicalFacts = new HashSet<string>();
-            numericalFacts = new Dictionary<string, int>();
+            numericalFacts = new Dictionary<string, double>();
             rules = new List<Rule>();
         }
 
@@ -29,7 +29,7 @@ namespace Solution.Principles.Implementation
                 if (parts.Length == 2)
                 {
                     string key = parts[0].Replace("|", "").Trim();
-                    if (int.TryParse(parts[1].Trim(), out int value))
+                    if (double.TryParse(parts[1].Trim(), out double value))
                     {
                         numericalFacts[key] = value;
                     }
@@ -65,7 +65,7 @@ namespace Solution.Principles.Implementation
                 {
                     if (rule.Conclusion.Contains("="))
                     {
-                        string result = rule.EvaluateConclusion(numericalFacts);
+                        string result = rule.EvaluateConclusion(numericalFacts, this);
                         results.Add($"{rule.Conclusion.Split('=')[0].Trim()} = {result}");
                     }
                     else

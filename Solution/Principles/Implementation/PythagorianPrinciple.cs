@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Solution
 {
     public class PythagoreanPrinciple : IPrinciple
     {
         private Dictionary<string, double> numericalFacts;
-        private List<PythagoreanRule> rules;
+        private List<Rule> rules;
 
-        public string Name => "Pythagorean Theorem Principle";
+        public string Name => "Pythagorean";
 
         public PythagoreanPrinciple()
         {
             numericalFacts = new Dictionary<string, double>();
-            rules = new List<PythagoreanRule>();
+            rules = new List<Rule>();
         }
 
         public void AddPremise(string premise)
@@ -37,7 +38,7 @@ namespace Solution
             {
                 List<string> premises = new List<string>(parts[0].Split(new[] { "AND" }, StringSplitOptions.RemoveEmptyEntries));
                 string conclusion = parts[1].Trim();
-                rules.Add(new PythagoreanRule(premises.ConvertAll(p => p.Trim()), conclusion));
+                rules.Add(new Rule(premises.ConvertAll(p => p.Trim()), conclusion));
             }
         }
 
@@ -49,67 +50,12 @@ namespace Solution
             {
                 if (rule.IsSatisfied(numericalFacts.Keys.ToHashSet()))
                 {
-                    string result = rule.EvaluateConclusion(numericalFacts);
+                    string result = rule.EvaluateConclusion(numericalFacts, this);
                     results.Add($"{rule.Conclusion.Split('*')[0].Trim()} = {result}");
                 }
             }
 
             return results;
-        }
-    }
-
-    public class PythagoreanRule
-    {
-        public List<string> Premises { get; }
-        public string Conclusion { get; }
-
-        public PythagoreanRule(List<string> premises, string conclusion)
-        {
-            Premises = premises;
-            Conclusion = conclusion;
-        }
-
-        public bool IsSatisfied(HashSet<string> knownFacts)
-        {
-            return Premises.All(p => knownFacts.Contains(p));
-        }
-
-        public string EvaluateConclusion(Dictionary<string, double> facts)
-        {
-            try
-            {
-                if (Conclusion.Contains("c") && Premises.Contains("a") && Premises.Contains("b"))
-                {
-                    double a = facts["a"];
-                    double b = facts["b"];
-                    double c = Math.Sqrt(a * a + b * b); 
-                    return c.ToString("F2");  
-                }
-               
-                else if (Conclusion.Contains("a") && Premises.Contains("b") && Premises.Contains("c"))
-                {
-                    double b = facts["b"];
-                    double c = facts["c"];
-                    if (c * c - b * b < 0) throw new ArgumentException("Invalid values for 'c' and 'b'");
-                    double a = Math.Sqrt(c * c - b * b); 
-                    return a.ToString("F2"); 
-                }
-               
-                else if (Conclusion.Contains("b") && Premises.Contains("a") && Premises.Contains("c"))
-                {
-                    double a = facts["a"];
-                    double c = facts["c"];
-                    if (c * c - a * a < 0) throw new ArgumentException("Invalid values for 'c' and 'a'");
-                    double b = Math.Sqrt(c * c - a * a);  
-                    return b.ToString("F2"); 
-                }
-            }
-            catch (Exception ex)
-            {
-                return $"Error: {ex.Message}";
-            }
-
-            return "Cannot Evaluate";
         }
     }
 }

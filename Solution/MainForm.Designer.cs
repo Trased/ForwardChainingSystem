@@ -47,6 +47,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.genericProblemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,7 +163,8 @@
             // 
             this.loadProblemSetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pythagoreanTheoremToolStripMenuItem,
-            this.inclusionExclusionPrincipleToolStripMenuItem});
+            this.inclusionExclusionPrincipleToolStripMenuItem,
+            this.genericProblemToolStripMenuItem});
             this.loadProblemSetToolStripMenuItem.Name = "loadProblemSetToolStripMenuItem";
             this.loadProblemSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadProblemSetToolStripMenuItem.Text = "Load problem set";
@@ -202,6 +204,13 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // genericProblemToolStripMenuItem
+            // 
+            this.genericProblemToolStripMenuItem.Name = "genericProblemToolStripMenuItem";
+            this.genericProblemToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.genericProblemToolStripMenuItem.Text = "Generic Problem";
+            this.genericProblemToolStripMenuItem.Click += new System.EventHandler(this.genericProblemToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -248,6 +257,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pythagoreanTheoremToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inclusionExclusionPrincipleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genericProblemToolStripMenuItem;
     }
 }
 

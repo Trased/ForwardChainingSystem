@@ -19,7 +19,7 @@ namespace Solution
         {
             InitializeComponent();
             mKnowledgeBase = new KnowledgeBase();
-            mKnowledgeBase.setActivePrinciple(new GenericPrinciple());
+            mKnowledgeBase.SetActivePrinciple(new GenericPrinciple());   
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,20 +27,55 @@ namespace Solution
             MessageBox.Show("Forward Chaining System\nDeveloped for Artificial Intelligence 2024-2025", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void genericProblemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Generic Problem was set as the active principle", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            rulesBox.Clear();
+            rulesListBox.Items.Clear();
+            premisesBox.Clear();
+            premisesListBox.Items.Clear();
+            ruleButton.Enabled = true;
+
+            mKnowledgeBase.SetActivePrinciple(new GenericPrinciple());
+        }
         private void pythagoreanTheoremToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Pythagorean Theorem was set as the active principle!", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // TO DO
-            // Switch to a predefined principle(e.g., Inclusion - Exclusion Principle)
-            //mKnowledgeBase.setActivePrinciple(new InclusionExclusionPrinciple());
-            mKnowledgeBase.setActivePrinciple(new PythagoreanPrinciple());
+            rulesBox.Clear();
+            rulesListBox.Items.Clear();
+            premisesBox.Clear();
+            premisesListBox.Items.Clear();
+            ruleButton.Enabled = false;
+
+            mKnowledgeBase.SetActivePrinciple(new PythagoreanPrinciple());
+
+            mKnowledgeBase.AddRule("A AND B THEN R * R = A * A + B * B");
+            mKnowledgeBase.AddRule("A AND C THEN R * R = C * C - A * A");
+            mKnowledgeBase.AddRule("B AND C THEN R * R = C * C - B * B");
+
+            rulesListBox.Items.Add("A AND B THEN R * R = A * A + B * B");
+            rulesListBox.Items.Add("A AND C THEN R * R = C * C - A * A");
+            rulesListBox.Items.Add("B AND C THEN R * R = C * C - B * B");
+            
+        }
 
         private void inclusionExclusionPrincipleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Inclusion-Exclusion Principle was set as the active principle!", "Load Problem Set", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            mKnowledgeBase.setActivePrinciple(new InclusionExclusionPrinciple());
+            rulesBox.Clear();
+            rulesListBox.Items.Clear();
+            premisesBox.Clear();
+            premisesListBox.Items.Clear();
+            ruleButton.Enabled = false;
+
+            mKnowledgeBase.SetActivePrinciple(new InclusionExclusionPrinciple());
+
+            mKnowledgeBase.AddRule("|A| AND |B| AND |A n B| THEN |A u B| = |A| + |B| - |A n B|");
+
+            rulesListBox.Items.Add("|A| AND |B| AND |A n B| THEN |A u B| = |A| + |B| - |A n B|");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

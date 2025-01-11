@@ -9,13 +9,18 @@ namespace Solution
 {
     public class KnowledgeBase
     {
-        private IPrinciple ActivePrinciple { get; set; }
+        private IPrinciple ActivePrinciple;
 
-        public void setActivePrinciple(IPrinciple principle)
+        public void SetActivePrinciple(IPrinciple principle)
         {
             ActivePrinciple = principle;
         }
-        
+
+        public IPrinciple GetActivePrinciple()
+        { 
+            return ActivePrinciple;
+        }
+
         public void AddFact(string premise)
         {
             if (ActivePrinciple == null)

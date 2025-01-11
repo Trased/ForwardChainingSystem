@@ -7,14 +7,14 @@ namespace Solution
 {
     public class InclusionExclusionPrinciple : IPrinciple
     {
-        private Dictionary<string, int> numericalFacts;
+        private Dictionary<string, double> numericalFacts;
         private List<Rule> rules;
 
-        public string Name => "Inclusion-Exclusion Principle";
+        public string Name => "Inclusion-Exclusion";
 
         public InclusionExclusionPrinciple()
         {
-            numericalFacts = new Dictionary<string, int>();
+            numericalFacts = new Dictionary<string, double>();
             rules = new List<Rule>();
         }
 
@@ -24,7 +24,7 @@ namespace Solution
             if (parts.Length == 2)
             {
                 string key = parts[0].Replace("|", "").Trim();
-                if (int.TryParse(parts[1].Trim(), out int value))
+                if (double.TryParse(parts[1].Trim(), out double value))
                 {
                     numericalFacts[key] = value;
                 }
@@ -50,7 +50,7 @@ namespace Solution
             {
                 if (rule.IsSatisfied(numericalFacts.Keys.ToHashSet()))
                 {
-                    string result = rule.EvaluateConclusion(numericalFacts);
+                    string result = rule.EvaluateConclusion(numericalFacts, this);
                     results.Add($"{rule.Conclusion.Split('=')[0].Trim()} = {result}");
                 }
             }
